@@ -24,7 +24,7 @@ public class Li_091_Minimum_Adjustment_Cost {
                     cost[i][j] = Math.abs(nums.get(i) - j);
                 } else {
                     for(int k = 1; k <= 100; ++k){
-                        if(Math.abs(j - k) <= target){
+                        if(Math.abs(j - k) <= target){  // 当前的值由前一个值推得
                             int diff = cost[i - 1][k] + Math.abs(nums.get(i) - j);
                             cost[i][j] = Math.min(cost[i][j], diff);
                         }    

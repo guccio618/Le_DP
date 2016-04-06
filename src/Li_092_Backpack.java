@@ -6,6 +6,8 @@ public class Li_092_Backpack {
 	 * 			   也许前i - 1个item已经将j体积的背包填满。
 	 * Initial:    dp[i][0] = true;
 	 * Answer:     寻找为true时的最大capacity
+	 * 
+	 * 可空间优化
 	 *  
 	 ************************************************************************/
 	
@@ -67,4 +69,51 @@ public class Li_092_Backpack {
         
         return ans;
     }
+	
+	
+	
+	public int halfOfArray(int[] nums){
+		if(nums == null || nums.length == 0){
+			return 0;
+		} else if(nums .length == 1){
+			return nums[0];
+		}
+		
+		int sum = nums[0];
+		int n = nums.length;
+		
+		for(int i = 1; i < n; ++i){
+			sum += nums[i];
+		}
+		
+		sum /= 2;
+		boolean[][] dp = new boolean[n + 1][sum + 1];
+		int max = Integer.MIN_VALUE;
+		
+		for(int i = 0; i <= n; ++i){
+			dp[i][0] = true;
+		}
+		
+		for(int i = 1; i <= n; ++i){
+			for(int j = 1; j <= sum; ++j){
+				dp[i][j] = dp[i - 1][j];
+				if(j >= nums[i - 1]){
+					dp[i][j] |= dp[i - 1][j - nums[i - 1]];
+				}
+				if(dp[i][j] == true){
+					max = Math.max(max, j);
+				}
+			}
+		}
+		
+		return max;
+	}
+	
+	
+	
+	public static void main(String[] args){
+		Li_092_Backpack t = new Li_092_Backpack();
+		int[] nums = {1,24,5,6,9};
+		System.out.println(t.halfOfArray(nums));
+	}
 }

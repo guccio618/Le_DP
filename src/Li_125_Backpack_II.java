@@ -22,7 +22,7 @@ public class Li_125_Backpack_II {
         for(int i = 1; i <= len; ++i){
             for(int j = 1; j <= capacity; ++j){
                 dp[i % 2][j] = dp[(i - 1) % 2][j];
-                if(j - size[i - 1] >= 0){
+                if(j - size[i - 1] >= 0){    // 时时update dp[i][j]的值
                     dp[i % 2][j] = Math.max(dp[i % 2][j], dp[(i - 1) % 2][j - size[i - 1]] + value[i - 1]);
                 }
             }
