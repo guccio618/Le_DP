@@ -47,8 +47,8 @@ public class Le_097_Interleaving_String {
             for(int j = 1; j <= len2; ++j){
                 int k = i + j;
                 if(s3.charAt(k - 1) == s1.charAt(i - 1)){
-                    dp[i][j] = dp[i - 1][j] || dp[i][j];
-                } 
+                    dp[i][j] = dp[i - 1][j];
+                }          // 此处不可以用else, 因为有上下两种可能使得dp[i][j]＝true, 但因为
                 if(s3.charAt(k - 1) == s2.charAt(j - 1)){
                     dp[i][j] = dp[i][j - 1] || dp[i][j];
                 }

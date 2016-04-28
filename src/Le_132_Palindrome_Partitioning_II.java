@@ -21,7 +21,7 @@ public class Le_132_Palindrome_Partitioning_II {
 	    
 	    for(int i = 0; i < n; ++i){
 	        for(int j = 0; j <= i; ++j){
-	            if(memo[j][i] == true){
+	            if(memo[j][i] == true){   // 注意此处j 和 i的顺序
 	                if(j == 0){
 	                    cut[i] = Math.min(cut[i], 0);  // 注意切割代表的意思，这里代表当前i个字符可以构成一个Palindrome时，此时的切割次数为0
 	                } else {
