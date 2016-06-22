@@ -37,7 +37,7 @@ public class Le_044_Wildcard_Matching {
 				} else {
 					// two cases: 
 					// (1). matrix[i][j-1] => * is empty
-					// (2). matrix[i-1][j] => match sequence of characters
+					// (2). matrix[i-1][j] => match sequence of characters, 类似递推的方法，matrix[i - 1][j]逐个往前递推
 					matrix[i][j] = matrix[i][j - 1] || matrix[i - 1][j];
 				}
 			}

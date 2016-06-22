@@ -24,7 +24,7 @@ public class Le_140_Word_Break_II {
     }
     
     public List<String> helper(String s, int start, Set<String> wordDict, List<String>[] memo){
-        List<String> ans = new LinkedList<String>();
+        List<String> ans = new LinkedList<String>();  // 每次递归都开辟新的list
         if(start == s.length()){
             ans.add("");        // 这里必须要，因为此解法是从后往前递推的，即从start = s.length()开始，相当于dp[0]的初始化
             return ans;
@@ -34,7 +34,7 @@ public class Le_140_Word_Break_II {
         for(int index = start; index < n; ++index){
             String nextWord = s.substring(start, index + 1);
             if(wordDict.contains(nextWord)){
-                if(memo[index] == null){
+                if(memo[index] == null){     // 这里memo用index，防止index = s.length() 越界
                     memo[index] = helper(s, index + 1, wordDict, memo);  // 从 i+1 开始
                 } 
                 

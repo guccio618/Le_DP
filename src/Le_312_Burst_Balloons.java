@@ -22,10 +22,10 @@ public class Le_312_Burst_Balloons {
             nums[i] = iNums[i - 1];
         }
         
-        for(int length = 2; length < n; ++length){
+        for(int length = 2; length < n; ++length){         // length从2开始，表示start和end间至少有一个气球
             for(int start = 0; start + length < n; ++start){
                 int end = start + length;
-                for(int k = start + 1; k < end; ++k){ // k的起点和终点选择，考虑！
+                for(int k = start + 1; k < end; ++k){      // k的起点和终点选择，相当于从原数组的 1 到 n-1!
                     dp[start][end] = Math.max(dp[start][end], dp[start][k] + dp[k][end] + nums[start] * nums[k] * nums[end]);
                 }
             }

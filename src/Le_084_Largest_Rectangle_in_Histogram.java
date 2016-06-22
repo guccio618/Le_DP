@@ -16,9 +16,9 @@ public class Le_084_Largest_Rectangle_in_Histogram {
         int n = heights.length;
         Stack<Integer> stack = new Stack<Integer>();
         
-        for(int i = 0; i <= n; ++i){
+        for(int i = 0; i <= n; ++i){    // 有等号！！！
             int currentHeight = i == n ? -1 : heights[i];              // 利于最后一个元素出栈
-            while(!stack.isEmpty() && currentHeight <= heights[stack.peek()]){
+            while(!stack.isEmpty() && currentHeight <= heights[stack.peek()]){  // 有等号！！！
                 int h = heights[stack.pop()];
                 int w = (stack.isEmpty()) ? i : i - stack.peek() - 1;  // 取值范围
                 maxArea = Math.max(maxArea, h * w);

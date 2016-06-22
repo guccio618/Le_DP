@@ -27,11 +27,11 @@ public class Li_395_Coins_in_a_Line_II {
         
         int[] getValue = new int[n + 1];
         getValue[0] = 0;
-        getValue[1] = values[n - 1];     // 因为是从左往右拿，因此，当剩下最后一个coin时，其在values里的index应为 n-1
+        getValue[1] = values[n - 1];     // 因为是从左往右拿，因此，当剩下最后一个coin时，其在values里的index应为 n-1 !!!
         getValue[2] = values[n - 1] + values[n - 2];
         getValue[3] = values[n - 2] + values[n - 3];
         
-        for(int i = 4; i <= n; ++i){
+        for(int i = 4; i <= n; ++i){     // 注意是 values[n - i + 1] !!!
         	getValue[i] = Math.max(Math.min(getValue[i - 2], getValue[i - 3]) + values[n - i], Math.min(getValue[i - 3], getValue[i - 4]) + values[n - i] + values[n - i + 1]);
         }
         

@@ -7,7 +7,7 @@ public class Le_188_Best_Time_to_Buy_and_Sell_Stock_IV {
 	 * Function: 
 	 * 		gain = prices[i] - prices[i - 1];
 	 *		mustsell[i][j] = Max(globalbest[(i - 1)][j - 1] + gain, mustsell[(i - 1)][j] + gain);
-	 *		globalbest[i][j] = Math.max(globalbest[(i - 1)][j], mustsell[i ][j]); 
+	 *		globalbest[i][j] = Math.max(globalbest[(i - 1)][j], mustsell[i][j]); 
 	 * Intialization:
 	 * 		mustsell[0][i] = globalbest[0][i] = 0; 
 	 * Answer:
@@ -30,9 +30,9 @@ public class Le_188_Best_Time_to_Buy_and_Sell_Stock_IV {
 		}
 		
 		int n = prices.length;
-		int[][] mustsell = new int[n + 1][k + 1];   // mustSell[i][j]:
+		int[][] mustsell = new int[n][k + 1];   // mustSell[i][j]:
 													// 表示前i天，至多进行j次交易，第i天必须sell的最大获益
-		int[][] globalbest = new int[n + 1][k + 1]; // globalbest[i][j]:
+		int[][] globalbest = new int[n][k + 1]; // globalbest[i][j]:
 													// 表示前i天，至多进行j次交易，第i天可以不sell的最大获益
 
 		mustsell[0][0] = globalbest[0][0] = 0;  

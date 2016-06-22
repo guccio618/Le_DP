@@ -45,7 +45,7 @@ public class Le_087_Scramble_String {
         for(int length = 2; length <= n; ++length){
             for(int x = 0; x + length - 1 < n; ++x){   // 因为从词长度为2开始，表示就2个字符，因此需要减1
                 for(int y = 0; y + length - 1 < n; ++y){
-                    for(int i = 1; i < length; ++i){  // i取值范围为[1, length), 不取0和length是因为dp[x][y][0]表示单词长度为0，没有意义
+                    for(int i = 1; i < length; ++i){  // i取值范围为[1, length), 不取0和length是因为dp[x][y][0]表示单词长度为0，没有意义; i < length，使得后头的词至少一个字符长度！！！
                         dp[x][y][length] |= (dp[x][y][i] && dp[x + i][y + i][length - i]) || (dp[x][y + length - i][i] && dp[x + i][y][length - i]);
                     }
                 }

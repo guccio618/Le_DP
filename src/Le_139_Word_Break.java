@@ -34,7 +34,7 @@ public class Le_139_Word_Break {
                     String lastWord = s.substring(i - lastWordLen, i);
                     if(wordDict.contains(lastWord)){
                         canSplit[i] = true;
-                        break;
+                        break;      // 当寻找到之后，直接退出
                     }
                 }
             }

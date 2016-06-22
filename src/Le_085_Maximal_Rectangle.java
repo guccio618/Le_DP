@@ -22,7 +22,7 @@ public class Le_085_Maximal_Rectangle {
                 if(i == 0){
                     heights[i][j] = matrix[i][j] == '0' ? 0 : 1;
                 } else {
-                    heights[i][j] = (matrix[i][j] == '1') ? heights[i - 1][j] + 1 : 0;
+                    heights[i][j] = (matrix[i][j] == '1') ? heights[i - 1][j] + 1 : 0;  // j从0开始
                 }
             }
         }

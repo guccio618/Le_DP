@@ -39,7 +39,7 @@ public class Le_221_Maximal_Square {
 
 		return maxLen * maxLen;
 	}
-
+	
 	
 	
 	/**********************************************************
